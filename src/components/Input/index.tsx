@@ -4,7 +4,6 @@ import {
   useCallback,
   ForwardRefRenderFunction,
   forwardRef,
-  useEffect,
 } from 'react';
 
 import { FiAlertCircle } from 'react-icons/fi';

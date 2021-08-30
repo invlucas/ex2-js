@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FiCalendar, FiClock } from 'react-icons/fi';
 import { Container, FormContent } from './styles';
 import { Input } from '../Input';
+import { useWorkouts } from '../../hooks/useWorkouts';
 
 interface InputMenuFormData {
   time: string;
@@ -12,6 +13,8 @@ interface InputMenuFormData {
 }
 
 export const InsertMenu = () => {
+  const { createWorkout } = useWorkouts();
+
   const registerWorkoutLogFormSchema = yup.object().shape({
     time: yup
       .number()
@@ -28,7 +31,13 @@ export const InsertMenu = () => {
   const { errors } = formState;
 
   const handleCreateLog = (data: InputMenuFormData) => {
-    console.log(data);
+    const workout = {
+      timeSpent: data.time,
+      type: data.sport,
+      dateTime: data.date,
+    };
+
+    createWorkout(workout);
   };
 
   return (

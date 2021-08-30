@@ -14,9 +14,16 @@ interface Data {
 export const ActivityTable = () => {
   const { workouts, removeWorkout } = useWorkouts();
 
+  const formattedWorkouts = useMemo(() => {
+    return workouts.map(workout => ({
+      ...workout,
+      formattedTimeSpent: `${workout.timeSpent}h`,
+    }));
+  }, [workouts]);
+
   const columns = useMemo<Column<Data>[]>(
     () => [
-      { Header: 'TIME SPENT', accessor: 'timeSpent' },
+      { Header: 'TIME SPENT', accessor: 'dateTime' },
       { Header: 'TYPE', accessor: 'type' },
       { Header: 'DATE', accessor: 'dateTime' },
     ],
@@ -24,7 +31,7 @@ export const ActivityTable = () => {
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable<Data>({ columns, data: workouts }, useSortBy);
+    useTable<Data>({ columns, data: formattedWorkouts }, useSortBy);
 
   return (
     <Container>

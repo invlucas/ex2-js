@@ -37,6 +37,7 @@ export const FormContent = styled.div`
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   select {
     width: 20%;
@@ -44,6 +45,9 @@ export const FormContent = styled.div`
     border: none;
     border-radius: 0.4rem;
     padding: 0.4rem;
+    height: 2rem;
+
+    font-size: 1rem;
 
     color: #121214;
   }

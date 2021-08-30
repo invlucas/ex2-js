@@ -9,6 +9,7 @@ interface Data {
   timeSpent: string;
   type: string;
   dateTime: string;
+  formattedTimeSpent: string;
 }
 
 export const ActivityTable = () => {
@@ -23,7 +24,7 @@ export const ActivityTable = () => {
 
   const columns = useMemo<Column<Data>[]>(
     () => [
-      { Header: 'TIME SPENT', accessor: 'dateTime' },
+      { Header: 'TIME SPENT', accessor: 'formattedTimeSpent' },
       { Header: 'TYPE', accessor: 'type' },
       { Header: 'DATE', accessor: 'dateTime' },
     ],

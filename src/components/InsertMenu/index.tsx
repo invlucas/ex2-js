@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FiCalendar, FiClock } from 'react-icons/fi';
+import { FiClock } from 'react-icons/fi';
 import { Container, FormContent } from './styles';
 import { Input } from '../Input';
 import { useWorkouts } from '../../hooks/useWorkouts';
@@ -58,12 +58,7 @@ export const InsertMenu = () => {
             <option>Swim</option>
             <option>Bike</option>
           </select>
-          <Input
-            icon={FiCalendar}
-            type="date"
-            error={errors.date}
-            {...register('date')}
-          />
+          <Input type="date" error={errors.date} {...register('date')} />
           <button type="submit">Add</button>
         </FormContent>
       </form>

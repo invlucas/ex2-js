@@ -49,8 +49,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   input[type='date']::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+    background-color: transparent;
+    padding: 0;
   }
 `;
 

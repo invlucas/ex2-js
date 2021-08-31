@@ -1,11 +1,14 @@
+import { WorkoutsProvider } from './hooks/useWorkouts';
 import { Dashboard } from './pages/Dashboard';
 import GlobalStyles from './styles/global';
 
 function App() {
   return (
     <>
-      <Dashboard />
-      <GlobalStyles />
+      <WorkoutsProvider>
+        <Dashboard />
+        <GlobalStyles />
+      </WorkoutsProvider>
     </>
   );
 }
